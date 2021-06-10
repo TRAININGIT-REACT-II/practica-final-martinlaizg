@@ -1,29 +1,42 @@
-import { useEffect, useState } from "react";
-import Status from "./components/Status";
+import { BrowserRouter as Router, Route } from "react-router-dom"
+import { Provider } from "react-redux"
+
+import store from "./store"
+
+import PrivateRoute from "./components/PrivateRoute"
+
+import Home from "./view/Home"
+import Login from "./view/Login"
+import Signup from "./view/Signup"
+import NoteList from "./view/NoteList"
+import Navbar from "./components/NavBar"
 
 // Componente principal de la aplicación.
 const App = () => {
-  const [status, setStatus] = useState(false);
-  const [loading, setLoading] = useState(true);
 
-  // Cargamos el estado del servidor
-  useEffect(() => {
-    fetch("/api")
-      .then((res) => res.json())
-      .then((data) => setStatus(data.status === "ok"))
-      .finally(() => setLoading(false));
-  }, []);
+	// Mostramos la aplicación
+	return (
+		<Provider store={store}>
+			<Router>
+				<h1>TrainingNotes</h1>
+				<Navbar />
+				<main>
+					<Route path="/" exact>
+						<Home />
+					</Route>
+					<Route path="/login">
+						<Login />
+					</Route>
+					<Route path="/signup">
+						<Signup />
+					</Route>
+					<PrivateRoute path="/notas">
+						<NoteList />
+					</PrivateRoute>
+				</main>
+			</Router>
+		</Provider>
+	)
+}
 
-  // Mostramos la aplicación
-  return (
-    <main>
-      <h1>Curso de React de TrainingIT</h1>
-      <p>
-        Estado del servidor:
-        {loading ? " Cargando..." : <Status status={status} />}
-      </p>
-    </main>
-  );
-};
-
-export default App;
+export default App

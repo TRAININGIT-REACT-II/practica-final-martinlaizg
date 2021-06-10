@@ -1,0 +1,30 @@
+.navbar {
+  background-color: #dbdbdb;
+  margin: 1em 0;
+  padding: 0.2em 0;
+	display: flex;
+}
+
+.nav-item {
+	display: inline-block;
+  background-color: #0a6b88;
+  padding: 0.8em 1em;
+  margin: 0.5em;
+  color: #fafafa;
+  border-radius: 0.5em;
+  text-decoration: none;
+	cursor: pointer;
+}
+
+.nav-user {
+	min-width: 7em;
+	padding-left: 2em;
+	padding-right: 2em;
+}
+
+.navbar > .spacer{
+	flex: 1;
+	cursor: unset;
+}
+
+.nav-item.active {}
