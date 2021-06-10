@@ -12,7 +12,7 @@ const Navbar = () => {
 
 	const logout = () => {
 		dispatch(removeUser())
-		history.push("/")
+		history.push("/login")
 	}
 
 	const user = useSelector((state) => getUser(state))

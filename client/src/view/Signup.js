@@ -1,43 +1,33 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
 import { useHistory } from "react-router"
 
 import { setUser } from "../actions/user"
+import useApiLogin from "../hooks/apiLogin"
+import useApi from "../hooks/apiLogin"
 
 
 const Signup = () => {
 	const dispatch = useDispatch();
-	const [data, setData] = useState({})
 	const history = useHistory()
+	const [data, setData] = useState({})
+
+	//{ loading, user, error, setUserCredentials, run }
+	const request = useApiLogin("/api/register")
 
 	const onSubmit = (e) => {
 		e.preventDefault()
-		const body = JSON.stringify({
-			username: data.username,
-			password: data.password
-		})
-
-		fetch("/api/register", {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: body
-		}).then((res) => {
-			if (res.status === 200) {
-				return res.json()
-			} else {
-				console.log(res)
-			}
-		}).then((json) => {
-			if (json) {
-				dispatch(setUser(json.id, json.username, json.token))
-				history.push("/notas")
-			}
-		}).catch((reason) => {
-			console.log("Error: ", reason)
-		})
+		request.setUserCredentials(data)
+		request.run()
 	}
+
+	useEffect(() => {
+		if (request.user) {
+			console.log("Changed user", request.user)
+			dispatch(setUser(request.user.id, request.user.username, request.user.token))
+			history.push("/notas")
+		}
+	}, [request.user])
 
 	const onChange = (key) => {
 		return (e) => setData({
@@ -49,11 +39,12 @@ const Signup = () => {
 	return <>
 		<h2>Signup</h2>
 		<form onSubmit={onSubmit}>
-			<div>
+			{request.error && <div className="error-message">{request.error}</div>}
+			<div className="form-input">
 				<label htmlFor="username">Username </label>
 				<input type="text" id="username" name="username" onChange={onChange("username")} />
 			</div>
-			<div>
+			<div className="form-input">
 				<label htmlFor="password">Password </label>
 				<input type="password" id="password" name="password" onChange={onChange("password")} />
 			</div>
