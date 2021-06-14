@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import { NavLink, useHistory } from "react-router-dom"
+
+import { removeNotes } from "../actions/note"
 import { removeUser } from "../actions/user"
 import { getUser } from "../selectors/user"
 
@@ -12,6 +14,7 @@ const Navbar = () => {
 
 	const logout = () => {
 		dispatch(removeUser())
+		dispatch(removeNotes())
 		history.push("/login")
 	}
 

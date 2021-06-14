@@ -26,3 +26,9 @@ export const removeNote = (index) => {
 		index
 	}
 }
+
+export const removeNotes = () => {
+	return {
+		type: actionTypes.REMOVE_NOTE
+	}
+}

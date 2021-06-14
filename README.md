@@ -92,6 +92,37 @@ El código que contiene es un ejemplo y puedes modificarlo a tu gusto.
 
 # Práctica
 
-Mi recomendación es que comiences con la práctica desde el primer día y la uses para prácticar con los distintos apartados del curso. De esta manera, durante la semana final solo tendrás que aplicar ciertos retoques.
+## Funcionalidades
+- [X] Crear cuenta de usuario
+- [X] Inciciar sesión y almacenar el token de usuario de manera permanente
+- [ ] Cerrar sesión en la aplicación y borrar cualquier dato almacenado en el navegador
+- [ ] Listar todas las notas del usuario
+- [ ] Crear, editar y borrar notas. La accion de borrar pedirá una confirmación modal
 
-¡Mucho ánimo!
+## Funcionalidades extra
+- [ ] Incluir un botón o desplegable para ordenar las notas alfabéticamente (título), por fecha de creación y por fecha de última edición
+- [ ] Incluir un botón o desplegable para mostrar las notas como una lista o como tarjetas
+- [ ] Agrega el modo oscuro a tu aplicación
+
+# Vistas
+Cada vista será representada en una ruta distinta
+
+- [ ] Crear una cuenta
+- [ ] Iniciar sesión
+- [ ] Listado de notas
+- [ ] Crear una nota
+- [ ] Editar una nota
+- [ ] Ver una nota
+
+# Objetivos
+
+- [ ] Crea tus propios hooks y utiliza los que te ofrece la librería de React.
+- [ ] Controla los errores haciendo uso de Error Boundaries
+- [ ] Muestra un modal de confirmación haciendo uso de los portales
+- [ ] Gestión de formularios para distintas vistas de la aplicación
+- [ ] Gestión de distintas rutas con react-router
+- [ ] Incluye un estado de Redux para gestionar los datos del usuario. Puedes cargar los datos del usuario actual desde el localStorage
+- [ ] Conecta tu aplicación con la API y autentica al usuario
+- [ ] Agrega al menos un test unitario a tu proyecto
+- [ ] Permite configurar la URL de la API mediante el uso de DefinePlugin
+- [ ] Configura tu aplicación para generar un source-map más adecuado en producción

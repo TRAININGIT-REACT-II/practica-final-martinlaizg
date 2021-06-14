@@ -45,15 +45,15 @@ const Login = () => {
 	return <>
 		<h2>Login</h2>
 		<form onSubmit={onSubmit}>
-			<div>
+			<div className="form-input">
 				<label htmlFor="username">Username </label>
 				<input type="text" id="username" name="username" onChange={onChange("username")} />
 			</div>
-			<div>
+			<div className="form-input">
 				<label htmlFor="password">Password </label>
 				<input type="password" id="password" name="password" onChange={onChange("password")} />
 			</div>
-			<button type="submit">Sign Up</button>
+			<button type="submit">Log</button>
 		</form>
 
 	</>
