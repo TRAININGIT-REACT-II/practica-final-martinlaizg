@@ -107,8 +107,8 @@ El código que contiene es un ejemplo y puedes modificarlo a tu gusto.
 # Vistas
 Cada vista será representada en una ruta distinta
 
-- [ ] Crear una cuenta
-- [ ] Iniciar sesión
+- [X] Crear una cuenta
+- [X] Iniciar sesión
 - [ ] Listado de notas
 - [ ] Crear una nota
 - [ ] Editar una nota
