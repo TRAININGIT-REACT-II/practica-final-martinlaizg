@@ -1,0 +1,20 @@
+.card{
+	border: 1px solid gray;
+	border-radius: 1em;
+	margin-bottom: 1em;
+	padding: 0.1em 1em;
+}
+
+.card-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.card-title {
+	margin-bottom: 0.5em;
+}
+
+.card-date {
+	color: #868686;
+}

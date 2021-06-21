@@ -8,7 +8,8 @@ import PrivateRoute from "./components/PrivateRoute"
 import Home from "./view/Home"
 import Login from "./view/Login"
 import Signup from "./view/Signup"
-import NoteList from "./view/NoteList"
+import Notes from "./view/Notes"
+import NotesForm from "./view/NotesForm"
 import Navbar from "./components/NavBar"
 
 // Componente principal de la aplicación.
@@ -30,8 +31,11 @@ const App = () => {
 					<Route path="/signup">
 						<Signup />
 					</Route>
-					<PrivateRoute path="/notas">
-						<NoteList />
+					<PrivateRoute path="/notes" exact>
+						<Notes />
+					</PrivateRoute>
+					<PrivateRoute path="/notes/create">
+						<NotesForm />
 					</PrivateRoute>
 				</main>
 			</Router>

@@ -95,8 +95,8 @@ El código que contiene es un ejemplo y puedes modificarlo a tu gusto.
 ## Funcionalidades
 - [X] Crear cuenta de usuario
 - [X] Inciciar sesión y almacenar el token de usuario de manera permanente
-- [ ] Cerrar sesión en la aplicación y borrar cualquier dato almacenado en el navegador
-- [ ] Listar todas las notas del usuario
+- [X] Cerrar sesión en la aplicación y borrar cualquier dato almacenado en el navegador
+- [X] Listar todas las notas del usuario
 - [ ] Crear, editar y borrar notas. La accion de borrar pedirá una confirmación modal
 
 ## Funcionalidades extra
@@ -107,10 +107,10 @@ El código que contiene es un ejemplo y puedes modificarlo a tu gusto.
 # Vistas
 Cada vista será representada en una ruta distinta
 
-- [ ] Crear una cuenta
-- [ ] Iniciar sesión
-- [ ] Listado de notas
-- [ ] Crear una nota
+- [X] Crear una cuenta
+- [X] Iniciar sesión
+- [X] Listado de notas
+- [X] Crear una nota
 - [ ] Editar una nota
 - [ ] Ver una nota
 

@@ -22,7 +22,8 @@ const Navbar = () => {
 	const logged = user && user.token
 	return <div className="navbar">
 		<NavLink to="/" className="nav-item" activeClassName="active">Inicio</NavLink>
-		{logged && <NavLink to="/notas" className="nav-item" activeClassName="active">Notas</NavLink>}
+		{logged && <NavLink to="/notes" className="nav-item" activeClassName="active">Notas</NavLink>}
+		{logged && <NavLink to="/notes/create" className="nav-item" activeClassName="active">Añadir Nota</NavLink>}
 		<a className="spacer" href="#"></a>
 		{!logged && <NavLink to="/login" className="nav-item" activeClassName="active">Login</NavLink>}
 		{!logged && <NavLink to="/signup" className="nav-item" activeClassName="active">Sign Up</NavLink>}

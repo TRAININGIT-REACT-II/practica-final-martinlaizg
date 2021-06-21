@@ -34,7 +34,7 @@ const reducer = (state = initialState, action) => {
 				]
 			}
 		case actionTypes.REMOVE_NOTE:
-			if (!index) {
+			if (!action.index) {
 				return initialState
 			}
 			return {
