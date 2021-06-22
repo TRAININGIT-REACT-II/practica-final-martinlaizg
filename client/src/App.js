@@ -4,13 +4,14 @@ import { Provider } from "react-redux"
 import store from "./store"
 
 import PrivateRoute from "./components/PrivateRoute"
+import Navbar from "./components/NavBar"
 
 import Home from "./view/Home"
 import Login from "./view/Login"
 import Signup from "./view/Signup"
 import Notes from "./view/Notes"
 import NotesForm from "./view/NotesForm"
-import Navbar from "./components/NavBar"
+import NoteView from "./view/NoteView"
 
 // Componente principal de la aplicación.
 const App = () => {
@@ -34,8 +35,11 @@ const App = () => {
 					<PrivateRoute path="/notes" exact>
 						<Notes />
 					</PrivateRoute>
-					<PrivateRoute path="/notes/create">
+					<PrivateRoute path="/notes/create" exact>
 						<NotesForm />
+					</PrivateRoute>
+					<PrivateRoute path="/note/:id">
+						<NoteView />
 					</PrivateRoute>
 				</main>
 			</Router>

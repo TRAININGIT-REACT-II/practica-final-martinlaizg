@@ -1,22 +1,19 @@
 import { useEffect, useMemo, useState } from "react"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import { getUser } from "../selectors/user"
 
 import NoteList from "../components/NoteList"
+import { setNotes } from "../actions/note"
 
 const Notes = () => {
 
 	// Notas
-	const [notes, setNotes] = useState([])
+	const [notes, setNotesState] = useState([])
 	// usuario que realiza la peticion
-	const user = useSelector((state) => getUser(state))
+	const token = useSelector((state) => getUser(state))?.token
 
-	// token para la autenticacion, se actualizará cuando cambie el user
-	const token = useMemo(() => {
-		console.log("useMemo user", user ?? "")
-		return user.token ?? ""
-	}, [user])
+	const dispatch = useDispatch()
 
 	// Obtencion de notas
 	const fetchNotes = () => {
@@ -26,22 +23,20 @@ const Notes = () => {
 				'api-token': token
 			}
 		}
-		console.log("fetch notes")
 		fetch("/api/notes", fetchParams).then((response) => {
 			return response.json()
 		}).then((json) => {
 			if (json.error) {
 
 			} else {
-				setNotes(json)
-				console.log("NoteList fetch setNotes")
+				setNotesState(json)
+				dispatch(setNotes(json))
 			}
 		})
 	}
 
 	// Use effect para cuando cambie el valor de token
 	useEffect(() => {
-		console.log("useEffect token", token)
 		fetchNotes()
 	}, [token])
 

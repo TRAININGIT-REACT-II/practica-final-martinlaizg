@@ -20,10 +20,10 @@ export const completeNote = (index) => {
 		index
 	}
 }
-export const removeNote = (index) => {
+export const removeNote = (id) => {
 	return {
 		type: actionTypes.REMOVE_NOTE,
-		index
+		id
 	}
 }
 

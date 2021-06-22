@@ -28,7 +28,6 @@ const NotesForm = () => {
 				date: Date.now()
 			}
 		}
-		console.log(JSON.stringify(data))
 		let params = {
 			method: 'POST',
 			headers: {

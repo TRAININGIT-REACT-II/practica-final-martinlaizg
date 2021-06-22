@@ -18,3 +18,7 @@
 .card-date {
 	color: #868686;
 }
+
+.note {
+	cursor: pointer;
+}

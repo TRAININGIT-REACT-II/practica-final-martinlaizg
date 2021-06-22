@@ -34,13 +34,9 @@ const reducer = (state = initialState, action) => {
 				]
 			}
 		case actionTypes.REMOVE_NOTE:
-			if (!action.index) {
-				return initialState
-			}
 			return {
 				list: [
-					...state.list.slice(0, action.index),
-					...state.list.slice(action.index + 1),
+					...state.list.filter((n)=>n.id !== action.id)
 				]
 			}
 		default:

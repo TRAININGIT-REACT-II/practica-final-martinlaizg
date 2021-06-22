@@ -1,23 +1,21 @@
+import { useHistory } from "react-router-dom"
+
+import { format } from '../util/DateUtil'
 
 import "./Note.css"
 
 const Note = ({ note }) => {
 
-	const format = (time) => {
-		let date = new Date(time)
-		var h = date.getHours()
-		var mm = date.getMinutes()
-		var d = date.getDate()
-		var m = date.getMonth() + 1
-		var y = date.getFullYear()
+	const history = useHistory()
 
-		return (h <= 9 ? '0' + h : h) + ':' + (mm <= 9 ? '0' + mm : mm) + ' ' + (d <= 9 ? '0' + d : d) + '-' + (m <= 9 ? '0' + m : m) + '-' + y
+	const goToNote = () => {
+		history.push(`/note/${note.id}`)
 	}
 
-	const date = note.content?.date && format(note.content?.date)
+	const date = note.content?.date && format(note.content.date)
 	const style = "card"
 
-	return <div className={style}>
+	return <div className={"note " + style} onClick={goToNote}>
 		<div className={style + '-header'}>
 			<h3 className={style + '-title'}>{note.title}</h3>
 			<small className={style + '-date'}>{date}</small>

@@ -27,7 +27,7 @@ const Navbar = () => {
 		<a className="spacer" href="#"></a>
 		{!logged && <NavLink to="/login" className="nav-item" activeClassName="active">Login</NavLink>}
 		{!logged && <NavLink to="/signup" className="nav-item" activeClassName="active">Sign Up</NavLink>}
-		{logged && <a href="#" className="nav-item nav-user" >{user.username}</a>}
+		{logged && <p href="#" className="nav-item nav-user" >{user.username}</p>}
 		{logged && <a onClick={logout} className="nav-item" href="#">Cerrar sesión</a>}
 	</div>
 }

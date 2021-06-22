@@ -93,11 +93,11 @@ El código que contiene es un ejemplo y puedes modificarlo a tu gusto.
 # Práctica
 
 ## Funcionalidades
-- [X] Crear cuenta de usuario
-- [X] Inciciar sesión y almacenar el token de usuario de manera permanente
-- [X] Cerrar sesión en la aplicación y borrar cualquier dato almacenado en el navegador
-- [X] Listar todas las notas del usuario
-- [ ] Crear, editar y borrar notas. La accion de borrar pedirá una confirmación modal
+- [X] Crear cuenta de usuario 🙍🏽‍♀️🙍🏽‍♂️
+- [X] Inciciar sesión y almacenar el token de usuario de manera permanente 🔐
+- [X] Cerrar sesión en la aplicación y borrar cualquier dato almacenado en el navegador 🔐🗑
+- [X] Listar todas las notas del usuario 🗒
+- [ ] Crear, editar y borrar notas. La accion de borrar pedirá una confirmación modal 🗒✏🗑
 
 ## Funcionalidades extra
 - [ ] Incluir un botón o desplegable para ordenar las notas alfabéticamente (título), por fecha de creación y por fecha de última edición
