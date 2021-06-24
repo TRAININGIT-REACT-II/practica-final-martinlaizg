@@ -6,6 +6,7 @@ import { format } from '../util/DateUtil'
 import { removeNote, setNotes } from "../actions/note"
 import { getNote } from "../selectors/note"
 import { getUser } from "../selectors/user"
+import ConfirmModal from "../components/ConfirmModal"
 
 const NoteView = () => {
 	const params = useParams()
@@ -14,6 +15,8 @@ const NoteView = () => {
 
 	const token = useSelector((state) => getUser(state))?.token
 	const note = useSelector((state) => getNote(state, params.id))
+
+	const [showModal, setShowModal] = useState(false)
 
 	const fetchNote = () => {
 		const fetchParams = {
@@ -46,6 +49,9 @@ const NoteView = () => {
 			})
 	}
 
+	const openModal = () => setShowModal(true)
+	const closeModal = () => setShowModal(false)
+
 	if (!note) {
 		fetchNote()
 		return <h3>No existe la nota</h3>
@@ -56,8 +62,9 @@ const NoteView = () => {
 		<p>{note.content?.description}</p>
 		<small>Creada {format(note.content?.date)}</small>
 		<br />
-		<button onClick={deleteNote}>Borrar</button>
+		<button onClick={openModal}>Borrar</button>
 		<button onClick={editNote}>Editar</button>
+		<ConfirmModal show={showModal} title="¿Estás seguro?" description="Vas a borrar una nota" onConfirm={deleteNote} onReject={closeModal} />
 	</>
 }
 
