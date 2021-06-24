@@ -39,8 +39,8 @@ const NotesForm = () => {
 		fetch('/api/notes', params)
 			.then((response) => {
 				return response.json()
-			}).then((json) =>{
-				if(!json?.error){
+			}).then((json) => {
+				if (!json?.error) {
 					history.push(`/note/${json.id}`)
 				}
 			})
@@ -52,7 +52,7 @@ const NotesForm = () => {
 		<Form onSend={createNote} refs={[titleRef, descRec]} >
 			<InputField type="text" label="Nota" name='title' innerRef={titleRef} />
 			<InputField type="textarea" label="Descripción" name='description' innerRef={descRec} />
-			<InputField type="submit" />
+			<InputField type="submit" label="Crear" />
 		</Form>
 	</>
 }
