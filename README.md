@@ -111,18 +111,18 @@ Cada vista será representada en una ruta distinta
 - [X] Iniciar sesión
 - [X] Listado de notas
 - [X] Crear una nota
-- [ ] Editar una nota
-- [ ] Ver una nota
+- [X] Editar una nota
+- [X] Ver una nota
 
 # Objetivos
 
 - [ ] Crea tus propios hooks y utiliza los que te ofrece la librería de React.
 - [ ] Controla los errores haciendo uso de Error Boundaries
 - [ ] Muestra un modal de confirmación haciendo uso de los portales
-- [ ] Gestión de formularios para distintas vistas de la aplicación
-- [ ] Gestión de distintas rutas con react-router
+- [X] Gestión de formularios para distintas vistas de la aplicación
+- [X] Gestión de distintas rutas con react-router
 - [ ] Incluye un estado de Redux para gestionar los datos del usuario. Puedes cargar los datos del usuario actual desde el localStorage
-- [ ] Conecta tu aplicación con la API y autentica al usuario
+- [X] Conecta tu aplicación con la API y autentica al usuario
 - [ ] Agrega al menos un test unitario a tu proyecto
 - [ ] Permite configurar la URL de la API mediante el uso de DefinePlugin
 - [ ] Configura tu aplicación para generar un source-map más adecuado en producción

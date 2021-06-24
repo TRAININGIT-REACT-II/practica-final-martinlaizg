@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 
@@ -26,6 +27,10 @@ const NoteView = () => {
 			.then((json) => { dispatch(setNotes([json])) })
 	}
 
+	const editNote = () => {
+		history.push(`/note/${params.id}/edit`)
+	}
+
 	const deleteNote = () => {
 		const fetchParams = {
 			method: 'DELETE',
@@ -35,9 +40,9 @@ const NoteView = () => {
 		}
 		fetch(`/api/notes/${params.id}`, fetchParams)
 			.then((response) => response.json())
-			.then((json) => { 
+			.then((json) => {
 				history.push('/notes')
-				dispatch(removeNote(params.id)) 
+				dispatch(removeNote(params.id))
 			})
 	}
 
@@ -46,13 +51,13 @@ const NoteView = () => {
 		return <h3>No existe la nota</h3>
 	}
 
-	console.log("Note", note.content.description)
 	return <>
 		<h3>{note.title}</h3>
-		<p>{note.content.description}</p>
-		<small>Creada {format(note.content.date)}</small>
+		<p>{note.content?.description}</p>
+		<small>Creada {format(note.content?.date)}</small>
 		<br />
 		<button onClick={deleteNote}>Borrar</button>
+		<button onClick={editNote}>Editar</button>
 	</>
 }
 

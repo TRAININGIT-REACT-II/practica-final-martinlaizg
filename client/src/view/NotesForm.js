@@ -50,7 +50,7 @@ const NotesForm = () => {
 	return <>
 		<h2>Crear una nota</h2>
 		<Form onSend={createNote} refs={[titleRef, descRec]} >
-			<InputField type="text" label="Nota" name='title' innerRef={titleRef} />
+			<InputField type="text" label="Título" name='title' innerRef={titleRef} />
 			<InputField type="textarea" label="Descripción" name='description' innerRef={descRec} />
 			<InputField type="submit" label="Crear" />
 		</Form>

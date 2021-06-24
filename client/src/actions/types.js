@@ -9,6 +9,7 @@ const actions = [
 	"ADD_NOTE",
 	"COMPLETE_NOTE",
 	"REMOVE_NOTE",
+	"REPLACE_NOTE",
 ]
 
 const actionTypes = {}

@@ -12,6 +12,7 @@ import Signup from "./view/Signup"
 import Notes from "./view/Notes"
 import NotesForm from "./view/NotesForm"
 import NoteView from "./view/NoteView"
+import NoteEdit from "./view/NoteEdit"
 
 // Componente principal de la aplicación.
 const App = () => {
@@ -38,7 +39,10 @@ const App = () => {
 					<PrivateRoute path="/notes/create" exact>
 						<NotesForm />
 					</PrivateRoute>
-					<PrivateRoute path="/note/:id">
+					<PrivateRoute path="/note/:id/edit" exact>
+						<NoteEdit />
+					</PrivateRoute>
+					<PrivateRoute path="/note/:id" exact>
 						<NoteView />
 					</PrivateRoute>
 				</main>

@@ -36,7 +36,19 @@ const reducer = (state = initialState, action) => {
 		case actionTypes.REMOVE_NOTE:
 			return {
 				list: [
-					...state.list.filter((n)=>n.id !== action.id)
+					...state.list.filter((n) => n.id !== action.id)
+				]
+			}
+		case actionTypes.REPLACE_NOTE:
+			return {
+				list: [
+					...state.list.map((n)=>{
+						var newNote = n
+						if(n.id === action.note.id){
+							newNote = action.note
+						}
+						return newNote
+					})
 				]
 			}
 		default:

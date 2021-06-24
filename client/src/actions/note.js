@@ -32,3 +32,10 @@ export const removeNotes = () => {
 		type: actionTypes.REMOVE_NOTE
 	}
 }
+
+export const replaceNote = (note) => {
+	return {
+		type: actionTypes.REPLACE_NOTE,
+		note
+	}
+}
