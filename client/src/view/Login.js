@@ -35,7 +35,7 @@ const Login = () => {
 			}
 		}).then((json) => {
 			dispatch(setUser(json.id, json.username, json.token))
-			history.push("/notas")
+			history.push("/notes")
 		}).catch((reason) => {
 			console.log("Error: ", reason)
 		})

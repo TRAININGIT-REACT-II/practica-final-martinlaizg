@@ -15,11 +15,7 @@ const reducer = (state = initialState, action) => {
 			return {
 				list: [
 					...state.list,
-					{
-						title: action.note.title,
-						content: action.note.content,
-						author: action.note.author
-					}
+					action.note
 				]
 			}
 		case actionTypes.COMPLETE_NOTE:

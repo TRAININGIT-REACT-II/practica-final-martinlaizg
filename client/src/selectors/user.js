@@ -5,9 +5,15 @@ export const getUser = (state) => {
 	if (!state.user.token) {
 		const storedUser = JSON.parse(localStorage.getItem("USER_LOGGED"))
 		// Si hay un usuario en el localstorage y tiene token lo devolvemos
-		if(storedUser && storedUser.token){
+		if (storedUser && storedUser.token) {
 			return storedUser
 		}
 	}
 	return user
 };
+
+
+export const getToken = (state) => {
+	let user = getUser(state)
+	return user?.token
+}

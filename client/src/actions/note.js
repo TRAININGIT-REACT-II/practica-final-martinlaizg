@@ -6,12 +6,10 @@ export const setNotes = (notelist) => {
 		notelist
 	}
 }
-export const addNote = (title, content, author) => {
+export const addNote = (note) => {
 	return {
 		type: actionTypes.ADD_NOTE,
-		note: {
-			title, content, author
-		}
+		note
 	}
 }
 export const completeNote = (index) => {

@@ -1,48 +1,30 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
-import { getUser } from "../selectors/user"
-
+import { getToken } from "../selectors/user"
+import { getNotes } from "../selectors/note"
+import useApi from '../hooks/useApi'
 import NoteList from "../components/NoteList"
 import { setNotes } from "../actions/note"
 
 const Notes = () => {
-
 	// Notas
-	const [notes, setNotesState] = useState([])
+	const notes = useSelector(getNotes)
 	// usuario que realiza la peticion
-	const token = useSelector((state) => getUser(state))?.token
-
+	const token = useSelector(getToken)
 	const dispatch = useDispatch()
 
-	// Obtencion de notas
-	const fetchNotes = () => {
-		const fetchParams = {
-			method: 'GET',
-			headers: {
-				'api-token': token
-			}
-		}
-		fetch("/api/notes", fetchParams).then((response) => {
-			return response.json()
-		}).then((json) => {
-			if (json.error) {
-
-			} else {
-				setNotesState(json)
-				dispatch(setNotes(json))
-			}
-		})
-	}
+	const request = useApi('/api/notes', token, true, {})
 
 	// Use effect para cuando cambie el valor de token
 	useEffect(() => {
-		fetchNotes()
-	}, [token])
+		dispatch(setNotes(request.data))
+	}, [request.data])
 
 	return <>
 		<h2>NoteList</h2>
-		<NoteList notes={notes}/>
+		{notes && notes.length > 0 && <NoteList notes={notes} />}
+		{(!notes || notes.length == 0) && <h4>No tienes notas</h4>}
 	</>
 }
 

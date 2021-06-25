@@ -116,13 +116,21 @@ Cada vista será representada en una ruta distinta
 
 # Objetivos
 
-- [ ] Crea tus propios hooks y utiliza los que te ofrece la librería de React.
+- [X] Crea tus propios hooks y utiliza los que te ofrece la librería de React.
 - [ ] Controla los errores haciendo uso de Error Boundaries
-- [ ] Muestra un modal de confirmación haciendo uso de los portales
+- [X] Muestra un modal de confirmación haciendo uso de los portales
 - [X] Gestión de formularios para distintas vistas de la aplicación
 - [X] Gestión de distintas rutas con react-router
-- [ ] Incluye un estado de Redux para gestionar los datos del usuario. Puedes cargar los datos del usuario actual desde el localStorage
+- [X] Incluye un estado de Redux para gestionar los datos del usuario. Puedes cargar los datos del usuario actual desde el localStorage
 - [X] Conecta tu aplicación con la API y autentica al usuario
 - [ ] Agrega al menos un test unitario a tu proyecto
 - [ ] Permite configurar la URL de la API mediante el uso de DefinePlugin
 - [ ] Configura tu aplicación para generar un source-map más adecuado en producción
+
+
+# TO-DO
+- [ ] Borrado de nota lanza warning
+
+```
+Warning: Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function
+```

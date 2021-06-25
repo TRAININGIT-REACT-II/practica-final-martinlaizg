@@ -25,7 +25,7 @@ const Signup = () => {
 		if (request.user) {
 			console.log("Changed user", request.user)
 			dispatch(setUser(request.user.id, request.user.username, request.user.token))
-			history.push("/notas")
+			history.push("/notes")
 		}
 	}, [request.user])
 
