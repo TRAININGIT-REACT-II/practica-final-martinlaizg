@@ -34,7 +34,7 @@ const useApi = (path, token = '', performOnMount = true, initialParams = {}) => 
 				setLoading(true)
 			}
 			console.log('Fetch to ', path, config.method)
-			fetch(path, config)
+			fetch(`${SERVER_URL}${path}`, config)
 				.then((res) => res.json())
 				.then((json) => {
 					if (json) {

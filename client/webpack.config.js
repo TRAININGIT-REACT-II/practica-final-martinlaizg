@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { DefinePlugin } = require("webpack")
 const { resolve } = require("path");
 
 /**
@@ -44,6 +45,9 @@ const config = {
 			favicon: "./static/favicon.ico",
 			filename: "index.html",
 		}),
+		new DefinePlugin({
+			SERVER_URL: process.env.SERVER_URL || JSON.stringify("http://localhost:8080")
+		})
 	],
 	// Por ahora, incluimos siempre los source maps para que las herramientas
 	// de desarrollo del navegador muestren el codigo fuente

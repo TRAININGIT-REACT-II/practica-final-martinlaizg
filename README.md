@@ -124,7 +124,7 @@ Cada vista será representada en una ruta distinta
 - [X] Incluye un estado de Redux para gestionar los datos del usuario. Puedes cargar los datos del usuario actual desde el localStorage
 - [X] Conecta tu aplicación con la API y autentica al usuario
 - [X] Agrega al menos un test unitario a tu proyecto
-- [ ] Permite configurar la URL de la API mediante el uso de DefinePlugin
+- [X] Permite configurar la URL de la API mediante el uso de DefinePlugin
 - [X] Configura tu aplicación para generar un source-map más adecuado en producción
 
 

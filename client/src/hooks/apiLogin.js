@@ -25,7 +25,7 @@ const useApiLogin = (path) => {
 			if (!loading) {
 				setLoading(true)
 			}
-			fetch(path, {
+			fetch(`${SERVER_URL}${path}`, {
 				method: "POST",
 				headers: {
 					'Content-Type': 'application/json'
