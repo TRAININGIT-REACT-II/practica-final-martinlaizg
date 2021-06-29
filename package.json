@@ -6,6 +6,7 @@
   "scripts": {
     "start": "concurrently npm:client npm:server",
     "client": "webpack serve --mode development --config ./client/webpack.config.js",
+    "client-prod": "webpack serve --mode production --config ./client/webpack.config.js",
     "server": "nodemon -w server server/index.js",
     "run-tests": "jest --config ./client/jest.config.js ./client"
   },

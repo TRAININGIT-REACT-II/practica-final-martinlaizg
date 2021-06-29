@@ -125,7 +125,7 @@ Cada vista será representada en una ruta distinta
 - [X] Conecta tu aplicación con la API y autentica al usuario
 - [X] Agrega al menos un test unitario a tu proyecto
 - [ ] Permite configurar la URL de la API mediante el uso de DefinePlugin
-- [ ] Configura tu aplicación para generar un source-map más adecuado en producción
+- [X] Configura tu aplicación para generar un source-map más adecuado en producción
 
 
 # TO-DO
