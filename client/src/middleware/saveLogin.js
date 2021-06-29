@@ -1,7 +1,7 @@
 import actionTypes from '../actions/types'
 
 
-const login = (store) => (next) => (action) => {
+const saveLogin = (store) => (next) => (action) => {
 	const result = next(action)
 	// Solo controlamos la obtención del usuario logeado
 	if (action.type === actionTypes.REMOVE_USER) {
@@ -12,4 +12,4 @@ const login = (store) => (next) => (action) => {
 	return result
 }
 
-export default login
+export default saveLogin
