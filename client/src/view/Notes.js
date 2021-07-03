@@ -18,7 +18,9 @@ const Notes = () => {
 
 	// Use effect para cuando cambie el valor de token
 	useEffect(() => {
-		dispatch(setNotes(request.data))
+		if (request.data) {
+			dispatch(setNotes(request.data))
+		}
 	}, [request.data])
 
 	return <>

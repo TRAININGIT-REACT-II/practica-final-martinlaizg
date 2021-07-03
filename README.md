@@ -117,7 +117,7 @@ Cada vista será representada en una ruta distinta
 # Objetivos
 
 - [X] Crea tus propios hooks y utiliza los que te ofrece la librería de React.
-- [ ] Controla los errores haciendo uso de Error Boundaries
+- [X] Controla los errores haciendo uso de Error Boundaries
 - [X] Muestra un modal de confirmación haciendo uso de los portales
 - [X] Gestión de formularios para distintas vistas de la aplicación
 - [X] Gestión de distintas rutas con react-router

@@ -12,8 +12,6 @@ export const getUser = (state) => {
 	return user
 };
 
-
 export const getToken = (state) => {
-	let user = getUser(state)
-	return user?.token
+	return getUser(state)?.token
 }

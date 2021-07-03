@@ -4,6 +4,7 @@ import { Provider } from "react-redux"
 import store from "./store"
 
 import PrivateRoute from "./components/PrivateRoute"
+import ErrorBoundary from "./components/ErrorBoundary"
 import Navbar from "./components/NavBar"
 
 import Home from "./view/Home"
@@ -25,25 +26,39 @@ const App = () => {
 				<Navbar />
 				<main>
 					<Route path="/" exact>
-						<Home />
+						<ErrorBoundary>
+							<Home />
+						</ErrorBoundary>
 					</Route>
 					<Route path="/login">
-						<Login />
+						<ErrorBoundary>
+							<Login />
+						</ErrorBoundary>
 					</Route>
 					<Route path="/signup">
-						<Signup />
+						<ErrorBoundary>
+							<Signup />
+						</ErrorBoundary>
 					</Route>
 					<PrivateRoute path="/notes" exact>
-						<Notes />
+						<ErrorBoundary>
+							<Notes />
+						</ErrorBoundary>
 					</PrivateRoute>
 					<PrivateRoute path="/notes/create" exact>
-						<NotesForm />
+						<ErrorBoundary>
+							<NotesForm />
+						</ErrorBoundary>
 					</PrivateRoute>
 					<PrivateRoute path="/note/:id/edit" exact>
-						<NoteEdit />
+						<ErrorBoundary>
+							<NoteEdit />
+						</ErrorBoundary>
 					</PrivateRoute>
 					<PrivateRoute path="/note/:id" exact>
-						<NoteView />
+						<ErrorBoundary>
+							<NoteView />
+						</ErrorBoundary>
 					</PrivateRoute>
 				</main>
 			</Router>

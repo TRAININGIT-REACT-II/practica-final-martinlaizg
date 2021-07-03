@@ -12,8 +12,11 @@ const useApi = (path, token = '', performOnMount = true, initialParams = {}) => 
 
 	const config = useMemo(() => {
 		const initialConfig = {
-			method: 'GET',
+			...initialParams,
 			...fetchParams
+		}
+		if (initialConfig.method == null) {
+			initialConfig.method = 'GET'
 		}
 
 		if (token && token != '') {
