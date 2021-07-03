@@ -3,8 +3,7 @@ import { useDispatch } from "react-redux"
 import { useHistory } from "react-router"
 
 import { setUser } from "../actions/user"
-import useApiLogin from "../hooks/apiLogin"
-import useApi from "../hooks/apiLogin"
+import useApi from "../hooks/useApi"
 
 
 const Signup = () => {
@@ -12,22 +11,28 @@ const Signup = () => {
 	const history = useHistory()
 	const [data, setData] = useState({})
 
-	//{ loading, user, error, setUserCredentials, run }
-	const request = useApiLogin("/api/register")
+	const request = useApi("/api/register", '', false, {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		}
+	})
 
 	const onSubmit = (e) => {
 		e.preventDefault()
-		request.setUserCredentials(data)
+		const body = JSON.stringify({
+			...data
+		})
+		request.setParams({ body: body })
 		request.run()
 	}
 
 	useEffect(() => {
-		if (request.user) {
-			console.log("Changed user", request.user)
-			dispatch(setUser(request.user.id, request.user.username, request.user.token))
+		if (request.data) {
+			dispatch(setUser(request.data.id, request.data.username, request.data.token))
 			history.push("/notes")
 		}
-	}, [request.user])
+	}, [request.data])
 
 	const onChange = (key) => {
 		return (e) => setData({
