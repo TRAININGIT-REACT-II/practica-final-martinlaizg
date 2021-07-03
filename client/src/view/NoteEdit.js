@@ -2,61 +2,63 @@ import { useMemo, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 
-import { replaceNote, setNotes } from "../actions/note"
+import useApi from '../hooks/useApi'
+import { addNote, replaceNote, setNotes } from "../actions/note"
 import { getNote } from "../selectors/note"
-import { getUser } from "../selectors/user"
+import { getToken, getUser } from "../selectors/user"
 import Form from "../components/Form"
 import InputField from "../components/InputField"
+import { useEffect } from "react"
 
 const NoteEdit = () => {
 	const params = useParams()
 	const dispatch = useDispatch()
 	const history = useHistory()
 
-	const token = useSelector((state) => getUser(state))?.token
+	const token = useSelector(getToken)
 	const note = useSelector((state) => getNote(state, params.id))
 
 	const titleRef = useRef(null)
 	const descRec = useRef(null)
 
-	const fetchNote = () => {
-		const fetchParams = {
-			method: 'GET',
-			headers: {
-				'api-token': token
-			}
+	const requestGet = useApi(`/api/notes/${params.id}`, token, true, {})
+
+	useEffect(() => {
+		if (requestGet.data) {
+			dispatch(addNote(requestGet.data))
 		}
-		fetch(`/api/notes/${params.id}`, fetchParams)
-			.then((response) => response.json())
-			.then((json) => dispatch(setNotes([json])))
-	}
+	}, [requestGet.data])
 
 	const cancelNote = () => {
 		history.goBack()
 	}
 
+
+	const requestUpdate = useApi(`/api/notes/${params.id}`, token, false, {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	useEffect(() => {
+		if (requestUpdate.data) {
+			dispatch(replaceNote(requestUpdate.data))
+			history.push(`/note/${params.id}`)
+		}
+	}, [requestUpdate.data])
+
+
 	const editNote = (formData) => {
-		let data = {
+		let body = JSON.stringify({
 			title: formData.title,
 			content: {
 				description: formData.description,
 				date: note.content.date
 			}
-		}
-		const fetchParams = {
-			method: 'PUT',
-			headers: {
-				'api-token': token,
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(data)
-		}
-		fetch(`/api/notes/${params.id}`, fetchParams)
-			.then((response) => response.json())
-			.then((json) => {
-				dispatch(replaceNote(json))
-				history.push(`/note/${params.id}`)
-			})
+		})
+		requestUpdate.setParams({ body })
+		requestUpdate.run()
 	}
 
 	if (!note) {
